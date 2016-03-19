@@ -85,10 +85,16 @@ class ViewController: UIViewController,ChartViewDelegate{
         
         //5 - finally set our data
         self.lineChartView.data = data
-        self.lineChartView.setVisibleXRangeMaximum(5);
+        self.lineChartView.setVisibleXRangeMaximum(10);
+        self.lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0 ,easingOption: .EaseInBounce)
+        let ll = ChartLimitLine(limit: 20.0, label: "Target")
+        self.lineChartView.rightAxis.addLimitLine(ll)
         
     }
 
+    func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
+        print("\(self.weightArray[entry.xIndex) in \(self.bmiArray[entry.xIndex])")
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
