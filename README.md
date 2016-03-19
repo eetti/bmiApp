@@ -14,5 +14,5 @@ Json
 The ios-charts is a gotten from this gitgub account [danielgindi]
 (https://github.com/danielgindi/ios-charts)
 
-###Assignment was submited to [Andrew Valencik](https://github.com/valencik/)
+###This assignment was submited to [Andrew Valencik](https://github.com/valencik/)
 
