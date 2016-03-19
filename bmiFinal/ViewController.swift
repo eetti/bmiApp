@@ -103,10 +103,12 @@ class ViewController: UIViewController,ChartViewDelegate{
         
         vc.setInitialText(String(format:"Hey guys, my current BMI is: %5.2f", myElement.first!["bmi"]!))
 //        let url:String = "http://www.facebook.com"
+//        vc.addURL(NSURL(string: "http://www.photolib.noaa.gov/nssl"))
 //        let image = UIImage!(self.lineChartView.saveToCameraRoll())
         UIGraphicsBeginImageContext(self.view.bounds.size);
         self.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        var screenShot = UIGraphicsGetImageFromCurrentImageContext();
+//        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
+        let screenShot = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         //        let newurl = NSURL(string: url)
 //        vc.addURL(newurl)
