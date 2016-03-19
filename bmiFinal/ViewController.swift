@@ -100,19 +100,22 @@ class ViewController: UIViewController,ChartViewDelegate{
     func shareChart(){
         let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         let myElement = self.defaults.objectForKey(record_key) as? [[String:Float]] ?? [[String:Float]]()
-        
-        vc.setInitialText(String(format:"Hey guys, my current BMI is: %5.2f", myElement.first!["bmi"]!))
+        if(myElement.count > 0 ){
+            vc.setInitialText(String(format:"Hey guys, my current BMI is: %5.2f", myElement.first!["bmi"]!))
 //        let url:String = "http://www.facebook.com"
 //        vc.addURL(NSURL(string: "http://www.photolib.noaa.gov/nssl"))
 //        let image = UIImage!(self.lineChartView.saveToCameraRoll())
-        UIGraphicsBeginImageContext(self.view.bounds.size);
-        self.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            UIGraphicsBeginImageContext(self.view.bounds.size);
+            self.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
 //        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
-        let screenShot = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+            let screenShot = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
         //        let newurl = NSURL(string: url)
 //        vc.addURL(newurl)
-        vc.addImage(screenShot)
+            vc.addImage(screenShot)
+        }else{
+            vc.setInitialText("I haven't calculated my BMI yet.")
+        }
         presentViewController(vc, animated: true, completion: nil)
     }
 
