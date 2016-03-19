@@ -14,7 +14,7 @@ Social Media Sharing
 Local Storage
 Json
 
-The ios-charts is a gotten from this gitgub account [danielgindi]
+The ios-charts is gotten from this repo on github [danielgindi]
 (https://github.com/danielgindi/ios-charts)
 
 ###This assignment was submited to [Andrew Valencik](https://github.com/valencik/)
