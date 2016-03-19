@@ -21,6 +21,28 @@ class ViewController: UIViewController,ChartViewDelegate{
     @IBOutlet weak var labelTxt: UILabel!
     
     let defaults = NSUserDefaults.standardUserDefaults() //set defaults ? localStorage
+
+    override func viewWillAppear(animated: Bool) {
+        let myElement = defaults.objectForKey(record_key) as? [[String:Float]] ?? [[String:Float]]()
+        var bmiVolatile = [Double]()
+        var weightVolatile = [String]()
+        if(myElement.count > 0 ){
+            for (key) in myElement {
+                let bmi = Double(key["bmi"]!)
+                let weight  = String(key["weight"]!)
+                bmiVolatile.insert(bmi, atIndex: 0)
+                weightVolatile.insert(weight, atIndex: 0)
+            }
+            bmiArray = bmiVolatile
+            weightArray = weightVolatile
+            self.lineChartView.notifyDataSetChanged();
+            setChartData(weightArray)
+            print(self.bmiArray)
+            labelTxt.text = String(format:"Your current BMI is: %5.2f", myElement.first!["bmi"]!)
+        }else{
+            self.lineChartView.noDataText = "No data provided"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +66,8 @@ class ViewController: UIViewController,ChartViewDelegate{
             for (key) in myElement {
                 let bmi = Double(key["bmi"]!)
                 let weight  = String(key["weight"]!)
-                bmiArray.insert(bmi, atIndex: 0)
-                weightArray.insert(weight, atIndex: 0)
+                self.bmiArray.insert(bmi, atIndex: 0)
+                self.weightArray.insert(weight, atIndex: 0)
             }
             setChartData(weightArray)
             self.lineChartView.notifyDataSetChanged();
