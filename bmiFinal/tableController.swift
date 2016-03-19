@@ -49,9 +49,6 @@ class tableController: UITableViewController{
     }
     
     func showError(msg: String) {
-        //if(msg == "status"){
-        
-        //}else
         let ac = UIAlertController(title: "Data Error", message: msg, preferredStyle: .Alert)
         ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
         presentViewController(ac, animated: true, completion: nil)

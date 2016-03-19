@@ -18,27 +18,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kr6-Jc-VXn">
-                                <rect key="frame" x="20" y="139" width="566" height="393"/>
-                                <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-3b-2OV" customClass="LineChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="0.0" width="566" height="393"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQa-fk-KH7">
+                                <rect key="frame" x="52" y="89" width="74" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="0g1-d0-K6q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Current BMI is : " lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FS5-st-cLu">
+                                <rect key="frame" x="52" y="139" width="330" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="WTG-f3-l1U"/>
+                                    <constraint firstAttribute="width" constant="330" id="b2E-x2-p1Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.098384581506252289" green="0.65736132860183716" blue="0.94837290048599243" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-3b-2OV" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="17" y="186" width="566" height="229"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kr6-Jc-VXn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="1S5-BH-6mG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Kr6-Jc-VXn" secondAttribute="trailing" constant="-6" id="RDy-25-vJM"/>
-                            <constraint firstItem="Kr6-Jc-VXn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Rxu-eZ-N6M"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kr6-Jc-VXn" secondAttribute="bottom" constant="19" id="pA1-a5-ezH"/>
+                            <constraint firstItem="FS5-st-cLu" firstAttribute="top" secondItem="jQa-fk-KH7" secondAttribute="bottom" constant="8" symbolic="YES" id="1U7-e2-hU8"/>
+                            <constraint firstItem="Fci-3b-2OV" firstAttribute="top" secondItem="FS5-st-cLu" secondAttribute="bottom" constant="15" id="1ip-aI-wde"/>
+                            <constraint firstItem="Fci-3b-2OV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-3" id="Prl-tc-BMW"/>
+                            <constraint firstItem="Fci-3b-2OV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="afV-ja-XlR"/>
+                            <constraint firstItem="jQa-fk-KH7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="32" id="g8A-rW-afY"/>
+                            <constraint firstItem="jQa-fk-KH7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="m8X-kj-4og"/>
+                            <constraint firstItem="Fci-3b-2OV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rq5-dw-Lhn"/>
+                            <constraint firstItem="FS5-st-cLu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="139" id="sZE-Ap-Xnj"/>
+                            <constraint firstItem="jQa-fk-KH7" firstAttribute="leading" secondItem="FS5-st-cLu" secondAttribute="leading" id="yHu-i1-jfm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eXp-24-Ljq"/>
+                    <navigationItem key="navigationItem" title="Home" id="eXp-24-Ljq"/>
                     <connections>
+                        <outlet property="labelTxt" destination="FS5-st-cLu" id="28Y-Mm-v0i"/>
                         <outlet property="lineChartView" destination="Fci-3b-2OV" id="3iO-7p-WOP"/>
                     </connections>
                 </viewController>
@@ -134,11 +153,11 @@
             </objects>
             <point key="canvasLocation" x="380" y="337"/>
         </scene>
-        <!--History-->
+        <!--Navigation Controller-->
         <scene sceneID="Fwb-8W-Iu5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PYJ-0j-hUA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" id="SX2-Ta-LDG"/>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="SX2-Ta-LDG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nC7-is-xQe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -157,11 +176,11 @@
             </objects>
             <point key="canvasLocation" x="1210" y="772"/>
         </scene>
-        <!--Chart-->
+        <!--Home-->
         <scene sceneID="vKO-9d-0HA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="042-y6-5Pv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chart" id="UHD-jQ-gTI"/>
+                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="042-y6-5Pv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="UHD-jQ-gTI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M3D-Bj-fHX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
