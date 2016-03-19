@@ -166,8 +166,8 @@ class tableController: UITableViewController{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let object = self.objects[indexPath.row]
-        cell.textLabel!.text = "BMI: \(object["bmi"]!)"
-        cell.detailTextLabel!.text = "Height: \(object["height"]!) Weight: \(object["weight"]!)"
+        cell.textLabel!.text =  String(format: "BMI: %5.2f", Float(object["bmi"]!)!)
+        cell.detailTextLabel!.text = "\t Height: \(object["height"]!) \t Weight: \(object["weight"]!)"
         return cell
     }
     

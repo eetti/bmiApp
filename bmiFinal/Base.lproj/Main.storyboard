@@ -15,11 +15,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQa-fk-KH7">
-                                <rect key="frame" x="52" y="89" width="74" height="42"/>
+                                <rect key="frame" x="48" y="89" width="74" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="0g1-d0-K6q"/>
                                 </constraints>
@@ -27,8 +27,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Current BMI is : " lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FS5-st-cLu">
-                                <rect key="frame" x="52" y="139" width="330" height="32"/>
+                            <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-3b-2OV" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="13" y="186" width="294" height="301"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FS5-st-cLu">
+                                <rect key="frame" x="48" y="139" width="330" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="WTG-f3-l1U"/>
                                     <constraint firstAttribute="width" constant="330" id="b2E-x2-p1Q"/>
@@ -37,25 +41,22 @@
                                 <color key="textColor" red="0.098384581506252289" green="0.65736132860183716" blue="0.94837290048599243" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-3b-2OV" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="17" y="186" width="566" height="229"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="FS5-st-cLu" firstAttribute="top" secondItem="jQa-fk-KH7" secondAttribute="bottom" constant="8" symbolic="YES" id="1U7-e2-hU8"/>
-                            <constraint firstItem="Fci-3b-2OV" firstAttribute="top" secondItem="FS5-st-cLu" secondAttribute="bottom" constant="15" id="1ip-aI-wde"/>
-                            <constraint firstItem="Fci-3b-2OV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-3" id="Prl-tc-BMW"/>
-                            <constraint firstItem="Fci-3b-2OV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="afV-ja-XlR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Fci-3b-2OV" secondAttribute="bottom" constant="32" id="Nu8-aE-KPy"/>
+                            <constraint firstItem="Fci-3b-2OV" firstAttribute="top" secondItem="FS5-st-cLu" secondAttribute="bottom" constant="15" id="Vl5-hL-mzO"/>
+                            <constraint firstItem="Fci-3b-2OV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-3" id="bif-95-ZdS"/>
                             <constraint firstItem="jQa-fk-KH7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="32" id="g8A-rW-afY"/>
+                            <constraint firstItem="Fci-3b-2OV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ktT-E6-RxT"/>
                             <constraint firstItem="jQa-fk-KH7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="m8X-kj-4og"/>
-                            <constraint firstItem="Fci-3b-2OV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rq5-dw-Lhn"/>
                             <constraint firstItem="FS5-st-cLu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="139" id="sZE-Ap-Xnj"/>
                             <constraint firstItem="jQa-fk-KH7" firstAttribute="leading" secondItem="FS5-st-cLu" secondAttribute="leading" id="yHu-i1-jfm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="eXp-24-Ljq"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="labelTxt" destination="FS5-st-cLu" id="28Y-Mm-v0i"/>
                         <outlet property="lineChartView" destination="Fci-3b-2OV" id="3iO-7p-WOP"/>
@@ -99,7 +100,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="ZAi-Ml-t3x" detailTextLabel="Hyb-1K-Rbq" style="IBUITableViewCellStyleSubtitle" id="fsU-OK-i4a">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="ZAi-Ml-t3x" detailTextLabel="Yes-ax-ssf" style="IBUITableViewCellStyleSubtitle" id="fsU-OK-i4a">
                                 <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fsU-OK-i4a" id="m3d-qv-Hbu">
@@ -113,7 +114,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hyb-1K-Rbq">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yes-ax-ssf">
                                             <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>

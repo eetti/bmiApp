@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import Social
 
 class ViewController: UIViewController,ChartViewDelegate{
 
@@ -34,7 +35,8 @@ class ViewController: UIViewController,ChartViewDelegate{
         self.lineChartView.fitScreen()
         self.lineChartView.pinchZoomEnabled = true
         
-        let share:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "share")
+        let share:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "shareChart")
+        navigationItem.rightBarButtonItems = [share]
         
         // Read data stored in local storage
         let myElement = defaults.objectForKey(record_key) as? [[String:Float]] ?? [[String:Float]]()
@@ -47,7 +49,7 @@ class ViewController: UIViewController,ChartViewDelegate{
             }
             setChartData(weightArray)
             self.lineChartView.notifyDataSetChanged();
-            labelTxt.text = String("Your current BMI is: \(myElement.first!["bmi"]!)")
+            labelTxt.text = String(format:"Your current BMI is: %5.2f", myElement.first!["bmi"]!)
         }else{
             self.lineChartView.noDataText = "No data provided"
         }
@@ -86,12 +88,26 @@ class ViewController: UIViewController,ChartViewDelegate{
         self.lineChartView.setVisibleXRangeMaximum(10);
         self.lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0 ,easingOption: .EaseInBounce)
         let ll = ChartLimitLine(limit: 20.0, label: "Target")
+        ll.lineColor = UIColor.brownColor()
         self.lineChartView.rightAxis.addLimitLine(ll)
         
     }
 
     func chartValueSelected(chartView: ChartViewBase, entry: ChartDataEntry, dataSetIndex: Int, highlight: ChartHighlight) {
         print("\(self.weightArray[entry.xIndex) in \(self.bmiArray[entry.xIndex])")
+    }
+    
+    func shareChart(){
+        let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        let myElement = self.defaults.objectForKey(record_key) as? [[String:Float]] ?? [[String:Float]]()
+        
+        vc.setInitialText("Hey guys, my current BMI is: \(myElement.first!["bmi"]!)")
+        let url:String = "http://www.facebook.com"
+        let image = UIImage!(self.lineChartView.saveToCameraRoll())
+        let newurl = NSURL(string: url)
+        vc.addURL(newurl)
+        vc.addImage(image)
+        presentViewController(vc, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
