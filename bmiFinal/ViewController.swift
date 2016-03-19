@@ -23,10 +23,10 @@ class ViewController: UIViewController,ChartViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 1
+        // Format the lineChartView
         self.lineChartView.delegate = self
         // 2
-        self.lineChartView.descriptionText = "Tap node for details"
+        self.lineChartView.descriptionText = "BMI / Weight"
         // 3
         self.lineChartView.descriptionTextColor = UIColor.whiteColor()
         self.lineChartView.gridBackgroundColor = UIColor.darkGrayColor()
@@ -34,16 +34,16 @@ class ViewController: UIViewController,ChartViewDelegate{
         self.lineChartView.fitScreen()
         self.lineChartView.pinchZoomEnabled = true
         
-        // 5
+        let share:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "share")
+        
+        // Read data stored in local storage
         let myElement = defaults.objectForKey(record_key) as? [[String:Float]] ?? [[String:Float]]()
         if myElement.count > 0 {
             for (key) in myElement {
                 let bmi = Double(key["bmi"]!)
                 let weight  = String(key["weight"]!)
-//                let height  = String(key["height"]!)
                 bmiArray.insert(bmi, atIndex: 0)
                 weightArray.insert(weight, atIndex: 0)
-//                let obj   = ["bmi": bmi,"weight": weight, "height": height]
             }
             setChartData(weightArray)
             self.lineChartView.notifyDataSetChanged();
@@ -56,8 +56,6 @@ class ViewController: UIViewController,ChartViewDelegate{
     
     func setChartData(weights : [String]) {
         // 1 - creating an array of data entries
-        print(bmiArray)
-        print(weightArray)
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
         for var i = 0; i < weights.count; i++ {
             yVals1.append(ChartDataEntry(value: bmiArray[i], xIndex: i))
