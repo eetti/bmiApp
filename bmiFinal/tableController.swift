@@ -43,7 +43,6 @@ class tableController: UITableViewController{
                 let obj   = ["bmi": bmi,"weight": weight, "height": height]
                 objects.append(obj)
             }
-            print(objects)
         }
          tableView.reloadData()
     }

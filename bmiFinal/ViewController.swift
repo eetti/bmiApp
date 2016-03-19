@@ -101,12 +101,16 @@ class ViewController: UIViewController,ChartViewDelegate{
         let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         let myElement = self.defaults.objectForKey(record_key) as? [[String:Float]] ?? [[String:Float]]()
         
-        vc.setInitialText("Hey guys, my current BMI is: \(myElement.first!["bmi"]!)")
-        let url:String = "http://www.facebook.com"
-        let image = UIImage!(self.lineChartView.saveToCameraRoll())
-        let newurl = NSURL(string: url)
-        vc.addURL(newurl)
-        vc.addImage(image)
+        vc.setInitialText(String(format:"Hey guys, my current BMI is: %5.2f", myElement.first!["bmi"]!))
+//        let url:String = "http://www.facebook.com"
+//        let image = UIImage!(self.lineChartView.saveToCameraRoll())
+        UIGraphicsBeginImageContext(self.view.bounds.size);
+        self.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        var screenShot = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        //        let newurl = NSURL(string: url)
+//        vc.addURL(newurl)
+        vc.addImage(screenShot)
         presentViewController(vc, animated: true, completion: nil)
     }
 
