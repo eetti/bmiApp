@@ -181,7 +181,7 @@
         <scene sceneID="vKO-9d-0HA">
             <objects>
                 <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="042-y6-5Pv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="UHD-jQ-gTI"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Home" image="HomeNa" id="UHD-jQ-gTI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M3D-Bj-fHX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -201,4 +201,7 @@
             <point key="canvasLocation" x="1218" y="63"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HomeNa" width="25" height="25"/>
+    </resources>
 </document>
